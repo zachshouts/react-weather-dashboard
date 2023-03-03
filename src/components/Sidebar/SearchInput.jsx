@@ -1,10 +1,10 @@
-import { Input, Button, Select } from '@chakra-ui/react';
+import { Input, Button } from '@chakra-ui/react';
 import { BiSearchAlt, BiCurrentLocation } from 'react-icons/bi';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const SearchInput = ({weatherData, setWeatherData}) => {
+const SearchInput = ({weatherData, setWeatherData, ready, setReady}) => {
 
-    const [ search, setSearch ] = useState('');
+    const [ search, setSearch ] = useState('Duluth');
 
     const fetchCityCoords = async () => {
         const cityUrl = `https://api.opencagedata.com/geocode/v1/json?q=${search}&key=454c8c56cbd84e5ab08d61f1691a0eff`;
@@ -24,15 +24,22 @@ const SearchInput = ({weatherData, setWeatherData}) => {
         const currentWeather = await fetch(currentWeatherUrl);
         const currentWeatherData = await currentWeather.json();
         console.log(currentWeatherData);
-        const forecastUrl = `http://api.weatherapi.com/v1/forecast.json?q=${lat},${lon}&days=5&key=55b574bd100b4298b6221213230303`;
+        const forecastUrl = `http://api.weatherapi.com/v1/forecast.json?q=${lat},${lon}&days=7&key=55b574bd100b4298b6221213230303`;
         const forecast = await fetch(forecastUrl);
         const forecastData = await forecast.json();
         console.log(forecastData);
+
+        setWeatherData([ currentWeatherData, forecastData.forecast]);
+        setReady(true);
     }
 
     const handleSearch = () => {
         fetchCityCoords(search);
     }
+
+    useEffect(() => {
+        fetchCityCoords()
+    }, []);
 
     return (
         <div className='row flex justify-center items-center mt-8'>

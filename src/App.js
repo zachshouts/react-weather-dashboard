@@ -6,12 +6,13 @@ import { useState } from 'react';
 function App() {
 
   const [ weatherData, setWeatherData ] = useState([{}, {}]);
+  const [ ready, setReady ] = useState(false);
 
   return (
     <ChakraProvider>
       <div className="App container-fluid">
         <div className='row flex'>
-          <Sidebar weatherData={weatherData} setWeatherData={setWeatherData} />
+          <Sidebar weatherData={weatherData} setWeatherData={setWeatherData} ready={ready} setReady={setReady} />
           <Main />
         </div>
       </div>
