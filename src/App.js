@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import { ChakraProvider } from '@chakra-ui/react';
 import './App.css';
+import { Sidebar, Main } from './components';
+import { useState } from 'react';
 
 function App() {
+
+  const [ weatherData, setWeatherData ] = useState([{}, {}]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider>
+      <div className="App container-fluid">
+        <div className='row flex'>
+          <Sidebar weatherData={weatherData} setWeatherData={setWeatherData} />
+          <Main />
+        </div>
+      </div>
+    </ChakraProvider>
   );
 }
 
 export default App;
+
+// Link back weatherapi in footer
