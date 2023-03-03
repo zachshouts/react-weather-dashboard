@@ -1,9 +1,13 @@
 
 
-const Main = () => {
+const Main = ({weatherData}) => {
     return (
         <section className="container w-3/4 border bg-body">
-            <h1>Main</h1>
+            <>
+                <div className="row flex mt-8">
+                    <p>Test</p>
+                </div>
+            </>
         </section>
     );
 }

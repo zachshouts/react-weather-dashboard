@@ -13,7 +13,7 @@ function App() {
       <div className="App container-fluid">
         <div className='row flex'>
           <Sidebar weatherData={weatherData} setWeatherData={setWeatherData} ready={ready} setReady={setReady} />
-          <Main />
+          <Main weatherData={weatherData} />
         </div>
       </div>
     </ChakraProvider>

@@ -7,7 +7,7 @@ const SearchInput = ({weatherData, setWeatherData, ready, setReady}) => {
     const [ search, setSearch ] = useState('Duluth');
 
     const fetchCityCoords = async () => {
-        const cityUrl = `https://api.opencagedata.com/geocode/v1/json?q=${search}&key=454c8c56cbd84e5ab08d61f1691a0eff`;
+        const cityUrl = `https://api.opencagedata.com/geocode/v1/json?q=${search}&key=${process.env.REACT_APP_OPENCAGE_API}`;
         let lat;
         let lon;
 
@@ -20,25 +20,25 @@ const SearchInput = ({weatherData, setWeatherData, ready, setReady}) => {
     }
 
     const fetchWeatherData = async (lon, lat) => {
-        const currentWeatherUrl = `http://api.weatherapi.com/v1/current.json?q=${lat},${lon}&key=55b574bd100b4298b6221213230303`;
+        const currentWeatherUrl = `https://api.weatherapi.com/v1/current.json?q=${lat},${lon}&key=${process.env.REACT_APP_WEATHER_API}`;
         const currentWeather = await fetch(currentWeatherUrl);
         const currentWeatherData = await currentWeather.json();
-        console.log(currentWeatherData);
-        const forecastUrl = `http://api.weatherapi.com/v1/forecast.json?q=${lat},${lon}&days=7&key=55b574bd100b4298b6221213230303`;
+        // console.log(currentWeatherData);
+        const forecastUrl = `https://api.weatherapi.com/v1/forecast.json?q=${lat},${lon}&days=7&key=${process.env.REACT_APP_WEATHER_API}`;
         const forecast = await fetch(forecastUrl);
         const forecastData = await forecast.json();
-        console.log(forecastData);
+        // console.log(forecastData);
 
         setWeatherData([ currentWeatherData, forecastData.forecast]);
         setReady(true);
     }
 
     const handleSearch = () => {
-        fetchCityCoords(search);
+        fetchCityCoords();
     }
 
     useEffect(() => {
-        fetchCityCoords()
+        // fetchCityCoords()
     }, []);
 
     return (
