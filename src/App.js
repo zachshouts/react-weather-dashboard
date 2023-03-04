@@ -27,4 +27,3 @@ function App() {
 
 export default App;
 
-// Link back weatherapi in footer
