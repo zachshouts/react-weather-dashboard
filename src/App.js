@@ -6,6 +6,7 @@ import { useState } from 'react';
 function App() {
 
   const [ weatherData, setWeatherData ] = useState([{}, {}]);
+  const [ imperial, setImperial ] = useState(true);
   const [ ready, setReady ] = useState(false);
 
   return (
@@ -16,7 +17,7 @@ function App() {
           { !ready ? (
             <p>Loading</p>
           ) : (
-            <Main weatherData={weatherData} ready={ready} />
+            <Main weatherData={weatherData} />
           )}
         </div>
       </div>

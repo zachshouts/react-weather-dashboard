@@ -12,11 +12,11 @@ const SidebarHero = ({weatherData}) => {
                 <Image src={`//cdn.weatherapi.com/weather/128x128/${iconUrl}`} alt={weatherData[0].current.condition.text} boxSize='256px' />
             </div>
 
-            <div className='row flex ml-12 p-10'>
-                <p className='text-8xl'>{weatherData[0].current.temp_f}°<span className='text-5xl align-top leading-normal font-semibold'>F</span></p>
+            <div className='row flex justify-center p-10'>
+                <p className='text-8xl'>{Math.round(weatherData[0].current.temp_f)}°<span className='text-5xl align-top leading-normal font-semibold'>F</span></p>
             </div>
 
-            <div className='row flex ml-12 pl-10'>
+            <div className='row flex justify-center px-10'>
                 <p className='text-2xl'>{formattedDate[0]}, <span className='text-text-secondary'>{formattedDate[1]}</span></p>
             </div>
 
@@ -38,7 +38,7 @@ const SidebarHero = ({weatherData}) => {
             </div>
 
             <div className='row flex ml-12 pl-10 mt-4'>
-                <p className='text-3xl p-3'>{weatherData[0].location.name}, {weatherData[0].location.region}</p>
+                <p className='text-3xl font-semibold'>{weatherData[0].location.name}, {weatherData[0].location.region}</p>
             </div>
         </>
     );
