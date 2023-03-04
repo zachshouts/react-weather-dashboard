@@ -1,6 +1,5 @@
 import SearchInput from "./SearchInput";
 import SidebarHero from "./SidebarHero";
-import { Spinner } from '@chakra-ui/react';
 
 const Sidebar = (props) => {
 
@@ -9,7 +8,7 @@ const Sidebar = (props) => {
             <SearchInput weatherData={props.weatherData} setWeatherData={props.setWeatherData} ready={props.ready} setReady={props.setReady} />
 
             { !props.ready ? (
-                <Spinner />
+                <></>
             ) : (
                 <SidebarHero weatherData={props.weatherData} />
             )}

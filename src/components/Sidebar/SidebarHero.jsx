@@ -2,7 +2,7 @@ import { Image } from '@chakra-ui/react';
 import dayjs from 'dayjs';
 
 const SidebarHero = ({weatherData}) => {
-    // console.log(weatherData);
+    
     // Api returns 64x64 icons so I'm splitting so I can specify 128x128 in the url and still grab the icon code
     const iconUrl = weatherData[0].current.condition.icon.split('64/')[1];
     const formattedDate = dayjs(weatherData[0].current.last_updated).format('dddd, H:mm').split(', ');

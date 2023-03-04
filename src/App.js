@@ -1,6 +1,6 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import './App.css';
-import { Sidebar, Main } from './components';
+import { Sidebar, Main, PageLoad } from './components';
 import { useState } from 'react';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <div className='row flex'>
           <Sidebar weatherData={weatherData} setWeatherData={setWeatherData} ready={ready} setReady={setReady} />
           { !ready ? (
-            <p>Loading</p>
+            <PageLoad />
           ) : (
             <Main weatherData={weatherData} />
           )}
