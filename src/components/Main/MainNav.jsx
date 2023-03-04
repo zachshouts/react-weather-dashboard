@@ -1,6 +1,6 @@
-import { Tabs, TabList, Tab, Button, textDecoration } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
 
-const MainNav = ({ defaultView, setDefaultView }) => {
+const MainNav = ({ setDefaultView, imperial, setImperial }) => {
 
     return (
         <>
@@ -9,8 +9,8 @@ const MainNav = ({ defaultView, setDefaultView }) => {
                 <Button variant='link' _hover={{ color: 'black'}} _active={{ color: 'black'}} _focus={{ color: 'black'}} onClick={() => setDefaultView(true)}>Week</Button>
             </div>
             <div className='flex gap-2 items-center'>
-                <Button borderRadius='full' size='sm' disabled>°C</Button>
-                <Button borderRadius='full' backgroundColor='black' color='white' size='sm'>°F</Button>
+                <Button borderRadius='full' backgroundColor={!imperial ? 'black' : 'white'} color={!imperial ? 'white' : 'black'}size='sm' onClick={() => setImperial(false)}>°C</Button>
+                <Button borderRadius='full' backgroundColor={imperial ? 'black' : 'white'} color={imperial ? 'white' : 'black'} size='sm' onClick={() => setImperial(true)}>°F</Button>
             </div>
         </>
     );

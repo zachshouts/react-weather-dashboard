@@ -13,11 +13,11 @@ function App() {
     <ChakraProvider>
       <div className="App container-fluid">
         <div className='row flex'>
-          <Sidebar weatherData={weatherData} setWeatherData={setWeatherData} ready={ready} setReady={setReady} />
+          <Sidebar weatherData={weatherData} setWeatherData={setWeatherData} ready={ready} setReady={setReady} imperial={imperial} />
           { !ready ? (
             <PageLoad />
           ) : (
-            <Main weatherData={weatherData} />
+            <Main weatherData={weatherData} imperial={imperial} setImperial={setImperial} />
           )}
         </div>
       </div>

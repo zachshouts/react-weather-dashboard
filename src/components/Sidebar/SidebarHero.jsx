@@ -1,7 +1,7 @@
 import { Image } from '@chakra-ui/react';
 import dayjs from 'dayjs';
 
-const SidebarHero = ({weatherData}) => {
+const SidebarHero = ({weatherData, imperial}) => {
     
     // Api returns 64x64 icons so I'm splitting so I can specify 128x128 in the url and still grab the icon code
     const iconUrl = weatherData[0].current.condition.icon.split('64/')[1];
@@ -13,7 +13,12 @@ const SidebarHero = ({weatherData}) => {
             </div>
 
             <div className='row flex justify-center p-10'>
-                <p className='text-8xl'>{Math.round(weatherData[0].current.temp_f)}°<span className='text-5xl align-top leading-normal font-semibold'>F</span></p>
+                { imperial ? (
+                    <p className='text-8xl'>{Math.round(weatherData[0].current.temp_f)}°<span className='text-5xl align-top leading-normal font-semibold'>F</span></p>
+                ) : (
+                    <p className='text-8xl'>{Math.round(weatherData[0].current.temp_c)}°<span className='text-5xl align-top leading-normal font-semibold'>C</span></p>
+                )
+                }
             </div>
 
             <div className='row flex justify-center px-10'>

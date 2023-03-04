@@ -1,7 +1,7 @@
 import { Card, CardBody, Image } from '@chakra-ui/react';
 import dayjs from 'dayjs';
 
-const HourlyForecast = ({ weatherData }) => {
+const HourlyForecast = ({ weatherData, imperial }) => {
     
     const currentHour = dayjs(weatherData[0].location.localtime).get('h');
     const dataArray = weatherData[1].forecastday[0].hour.slice(currentHour, currentHour + 7);
@@ -15,7 +15,12 @@ const HourlyForecast = ({ weatherData }) => {
                     <CardBody>
                         <p className='text-center'>{formattedTime}</p>
                         <Image src={hour.condition.icon} alt={hour.condition.text} />
-                        <p className='text-center'>{Math.round(hour.temp_f)}°</p>
+
+                        { imperial ? (
+                            <p className='text-center'>{Math.round(hour.temp_f)}°</p>
+                        ) : (
+                            <p className='text-center'>{Math.round(hour.temp_c)}°</p>
+                        )}
                     </CardBody>
                 </Card>
                 );

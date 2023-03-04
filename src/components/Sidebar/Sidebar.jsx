@@ -10,7 +10,7 @@ const Sidebar = (props) => {
             { !props.ready ? (
                 <></>
             ) : (
-                <SidebarHero weatherData={props.weatherData} />
+                <SidebarHero weatherData={props.weatherData} imperial={props.imperial} />
             )}
         </section>
     );

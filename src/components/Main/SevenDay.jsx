@@ -2,9 +2,7 @@
   import { Card, CardBody, Image } from '@chakra-ui/react';
   import dayjs from 'dayjs';
 
-const SevenDay = ({ weatherData }) => {
-
-    // console.log(weatherData);
+const SevenDay = ({ weatherData, imperial }) => {
 
 
     return (
@@ -16,7 +14,12 @@ const SevenDay = ({ weatherData }) => {
                     <CardBody>
                         <p className='text-center'>{formattedDate}</p>
                         <Image src={day.day.condition.icon} alt={day.day.condition.text} />
-                        <p className='text-center'>{Math.round(day.day.maxtemp_f)}° <span className='text-text-secondary'>{Math.round(day.day.mintemp_f)}°</span></p>
+
+                        { imperial ? (
+                            <p className='text-center'>{Math.round(day.day.maxtemp_f)}° <span className='text-text-secondary'>{Math.round(day.day.mintemp_f)}°</span></p>
+                        ) : (
+                            <p className='text-center'>{Math.round(day.day.maxtemp_c)}° <span className='text-text-secondary'>{Math.round(day.day.mintemp_c)}°</span></p>
+                        )}
                     </CardBody>
                 </Card>
                 )
