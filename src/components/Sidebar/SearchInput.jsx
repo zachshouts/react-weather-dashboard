@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 const SearchInput = ({weatherData, setWeatherData, ready, setReady}) => {
 
-    const [ search, setSearch ] = useState('Duluth');
+    const [ search, setSearch ] = useState('Duluth, MN');
 
     const fetchCityCoords = async () => {
         const cityUrl = `https://api.opencagedata.com/geocode/v1/json?q=${search}&key=${process.env.REACT_APP_OPENCAGE_API}`;
@@ -38,13 +38,13 @@ const SearchInput = ({weatherData, setWeatherData, ready, setReady}) => {
     }
 
     useEffect(() => {
-        // fetchCityCoords()
+        fetchCityCoords()
     }, []);
 
     return (
         <div className='row flex justify-center items-center mt-8'>
             <Button type='button' variant='ghost' borderRadius='full' onClick={handleSearch}><BiSearchAlt /></Button>
-            <Input placeholder='Search for places...' value={search} name='search' variant='unstyled' width='xs' onChange={(e) => setSearch(e.target.value)}/>
+            <Input placeholder='Search for places...' value={search} name='search' variant='unstyled' width='xs' onChange={(e) => { setSearch(e.target.value) }}/>
             <Button size='sm' type='button' borderRadius='full' disabled><BiCurrentLocation /></Button> 
         </div>
     );

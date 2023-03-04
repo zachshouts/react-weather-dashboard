@@ -5,7 +5,7 @@ import { Spinner } from '@chakra-ui/react';
 const Sidebar = (props) => {
 
     return (
-        <section className="container w-1/4 border">
+        <section className="container w-1/4">
             <SearchInput weatherData={props.weatherData} setWeatherData={props.setWeatherData} ready={props.ready} setReady={props.setReady} />
 
             { !props.ready ? (
