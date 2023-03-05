@@ -4,7 +4,7 @@
 ![Live site preview](./assets/weather-dash-mac.png)
 ## Live Site 
 
-[Click to view the live site](https://zachshouts.github.io/react-weather-dashboard/)
+[Click to view the live site](https://zachshouts.github.io/weather-dashboard/)
 
 
 
