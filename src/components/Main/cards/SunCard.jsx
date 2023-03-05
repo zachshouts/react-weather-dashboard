@@ -1,4 +1,3 @@
-import { WiSunset, WiSunrise } from 'react-icons/wi';
 
 const SunCard = (props) => {
 
