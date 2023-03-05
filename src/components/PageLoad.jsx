@@ -3,7 +3,7 @@ import { Spinner } from '@chakra-ui/react';
 
 const PageLoad = () => {
     return (
-        <section className='container grid grid-cols-3 justify-items-end items-center h-screen'>
+        <section className='container flex justify-center items-center lg:grid grid-cols-3 lg:justify-items-end lg:items-center h-screen'>
             
             <Spinner className='' size='xl' speed='.7s'/>
             
