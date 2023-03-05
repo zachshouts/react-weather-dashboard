@@ -14,8 +14,10 @@ During my education I was given the frontend of a weather dashboard with the pur
 
 ## Tech Stack
 
+```
 - React
 
 - TailwindCSS
 
 - Chakra UI
+```
