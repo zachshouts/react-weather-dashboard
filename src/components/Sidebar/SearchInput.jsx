@@ -51,7 +51,7 @@ const SearchInput = ({ setWeatherData, setReady }) => {
     
 
     return (
-        <div className='row flex justify-center items-center mt-8 mx-12'>
+        <div className='row flex justify-center items-center mt-8 mx-3 2xl:mx-12'>
             <Button type='button' variant='ghost' borderRadius='full' onClick={handleSearch}><BiSearchAlt /></Button>
             <Input placeholder='Search for places...' value={search} name='search' variant='unstyled' width='xs' onChange={(e) => { setSearch(e.target.value) }}/>
             <Button size='sm' type='button' borderRadius='full' onClick={() => handleGeolocation()}><BiCurrentLocation /></Button> 

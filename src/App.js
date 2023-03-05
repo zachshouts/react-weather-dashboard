@@ -11,8 +11,8 @@ function App() {
 
   return (
     <ChakraProvider>
-      <div className="App container-fluid">
-        <div className='row flex'>
+      <div className="App container-fluid m-0 p-0">
+        <div className='row flex flex-col lg:flex-row items-center lg:items-start'>
           <Sidebar weatherData={weatherData} setWeatherData={setWeatherData} ready={ready} setReady={setReady} imperial={imperial} />
           { !ready ? (
             <PageLoad />
