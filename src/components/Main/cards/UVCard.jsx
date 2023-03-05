@@ -8,7 +8,7 @@ const UVCard = (props) => {
         <>
             <div className='card bg-white w-full h-full rounded-2xl drop-shadow-md'>
                 <div className='row'>
-                    <p className='text-xl text-text-secondary pl-7 py-5'>{props.title}</p>
+                    <p className='text-xl text-text-secondary pl-4 xl:pl-7 py-5'>{props.title}</p>
                 </div>
                 <div className='row w-full overflow-clip'>
                     <div className='progress-container w-36 h-36 mx-auto'>

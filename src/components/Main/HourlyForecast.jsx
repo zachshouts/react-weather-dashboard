@@ -11,7 +11,7 @@ const HourlyForecast = ({ weatherData, imperial }) => {
             { dataArray.map((hour) => {
                 const formattedTime = dayjs(hour.time).format('hA');
                 return (
-                <Card align='center' variant='elevated' height='fit-content' width='full' key={dayjs(hour.time).get('h')}>
+                <Card align='center' variant='elevated' width='full' key={dayjs(hour.time).get('h')}>
                     <CardBody>
                         <p className='text-center'>{formattedTime}</p>
                         <Image src={hour.condition.icon} alt={hour.condition.text} />

@@ -10,7 +10,7 @@ const SevenDay = ({ weatherData, imperial }) => {
             { weatherData.map((day) => {
                 const formattedDate = dayjs(day.date).format('ddd');
                 return (
-                <Card align='center' variant='elevated' height='fit-content' width='full' key={formattedDate}>
+                <Card align='center' variant='elevated' width='full' key={formattedDate}>
                     <CardBody>
                         <p className='text-center'>{formattedDate}</p>
                         <Image src={day.day.condition.icon} alt={day.day.condition.text} />

@@ -10,13 +10,13 @@ const Main = ({weatherData, imperial, setImperial}) => {
     const [ defaultView, setDefaultView ] = useState(false);
 
     return (
-        <section className="container w-3/4 bg-body min-h-screen">
+        <section className="container lg:w-3/4 bg-body min-h-screen mt-8 lg:mt-0 rounded-lg">
             <>
-                <div className="row flex mt-8 mx-24 justify-between">
+                <div className="row flex mt-8 mx-8 lg:mx-12 xl:mx-24 justify-between">
                     <MainNav defaultView={defaultView} setDefaultView={setDefaultView} imperial={imperial} setImperial={setImperial} />
                 </div>
 
-                <div className='row flex mt-16 mx-24 justify-between gap-10'>
+                <div className='row flex mt-16 mx-6 md:mx-12 xl:mx-24 justify-between gap-3 2xl:gap-10 flex-col lg:flex-row'>
                    { defaultView ? (
                     <SevenDay weatherData={weatherData[1].forecastday} imperial={imperial} />
                    ) : (
@@ -24,12 +24,12 @@ const Main = ({weatherData, imperial, setImperial}) => {
                    )}
                 </div>
 
-                <div className='row mt-20 mx-24'>
+                <div className='row mt-20 mx-6 lg:mx-12 xl:mx-24'>
                     <p className='text-xl font-semibold'>Today's Highlights</p>
                 </div>
 
-                <div className='row mt-12 mx-24'>
-                    <div className='container grid grid-cols-3 gap-10'>
+                <div className='row mt-12 mx-6 lg:mx-12 xl:mx-24'>
+                    <div className='container grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6'>
                         <div className=''>
                             <UVCard title='UV Index' value={weatherData[0].current.uv} />
                         </div>
@@ -40,7 +40,7 @@ const Main = ({weatherData, imperial, setImperial}) => {
                             <SunCard title='Sunrise & Sunset' sunrise={weatherData[1].forecastday[0].astro.sunrise} sunset={weatherData[1].forecastday[0].astro.sunset} />
                         </div>
                         <div className=''>
-                            <BasicCard title='Humidity' value={weatherData[0].current.humidity} unit={'%'} message={weatherData[0].current.humidity < 50 ? 'Awesome 👍' : 'Could be worse 👎'} />
+                            <BasicCard title='Humidity' value={weatherData[0].current.humidity} unit={'%'} message={weatherData[0].current.humidity < 50 ? 'Awesome 👍' : 'Nasty 👎'} />
                         </div>
                         <div className=''>
                             <BasicCard title='Visibility' value={imperial ? weatherData[0].current.vis_miles : weatherData[0].current.vis_km} unit={imperial ? 'mi' : 'km'} message={imperial ? weatherData[0].current.vis_miles < 3 ? 'Helen Keller 👓' : 'Good to go 👀' : weatherData[0].current.vis_km < 4.8 ? 'Helen Keller 👓' : 'Good to go 👀'} />

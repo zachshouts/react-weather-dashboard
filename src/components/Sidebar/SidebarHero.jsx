@@ -30,7 +30,7 @@ const SidebarHero = ({weatherData, imperial}) => {
 
             <hr className='mx-auto h-1 w-2/3 mt-12 mb-6'/>
 
-            <div className='container flex flex-col xl:pl-8 2xl:pl-16'>
+            <div className='container flex flex-col lg:pl-8 2xl:pl-16'>
                 <div className='row flex justify-center lg:justify-start items-center gap-4'>
                     <Image src='//cdn.weatherapi.com/weather/64x64/day/122.png' alt='Cloud' />
                     <p className=''>Cloud Coverage - {weatherData[0].current.cloud}%</p>
