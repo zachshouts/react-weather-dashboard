@@ -1,10 +1,10 @@
 import { Input, Button } from '@chakra-ui/react';
 import { BiSearchAlt, BiCurrentLocation } from 'react-icons/bi';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const SearchInput = ({ setWeatherData, setReady }) => {
+const SearchInput = ({ setWeatherData, ready, setReady }) => {
 
-    const [ search, setSearch ] = useState('');
+    const [ search, setSearch ] = useState('New York, NY');
 
     const fetchCityCoords = async () => {
         const cityUrl = `https://api.opencagedata.com/geocode/v1/json?q=${search}&key=${process.env.REACT_APP_OPENCAGE_API}`;
@@ -29,6 +29,7 @@ const SearchInput = ({ setWeatherData, setReady }) => {
         const forecastData = await forecast.json();
 
         setWeatherData([ currentWeatherData, forecastData.forecast]);
+        setSearch(`${currentWeatherData.location.name}, ${currentWeatherData.location.region}`);
         setReady(true);
     }
 
@@ -48,6 +49,14 @@ const SearchInput = ({ setWeatherData, setReady }) => {
     const handlePosition = (position) => {
         fetchWeatherData(position.coords.longitude, position.coords.latitude);
     }
+
+    useEffect(() => {
+        fetchCityCoords();
+    }, []);
+
+    useEffect(() => {
+        handleGeolocation();
+    }, [ready])
     
 
     return (
