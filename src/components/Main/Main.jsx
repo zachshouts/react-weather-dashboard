@@ -10,7 +10,7 @@ const Main = ({weatherData, imperial, setImperial}) => {
     const [ defaultView, setDefaultView ] = useState(false);
 
     return (
-        <section className="container lg:w-3/4 bg-body min-h-screen mt-8 lg:mt-0 rounded-lg">
+        <section className="container-fluid lg:w-3/4 bg-body min-h-screen mt-8 lg:mt-0 rounded-lg">
             <>
                 <div className="row flex mt-8 mx-8 lg:mx-12 xl:mx-24 justify-between">
                     <MainNav defaultView={defaultView} setDefaultView={setDefaultView} imperial={imperial} setImperial={setImperial} />
