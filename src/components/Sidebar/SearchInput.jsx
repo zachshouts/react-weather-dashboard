@@ -52,10 +52,12 @@ const SearchInput = ({ setWeatherData, ready, setReady }) => {
 
     useEffect(() => {
         fetchCityCoords();
-    }, []);
+        //eslint-disable-next-line
+    }, [search]);
 
     useEffect(() => {
         handleGeolocation();
+        //eslint-disable-next-line
     }, [ready])
     
 
